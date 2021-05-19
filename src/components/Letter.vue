@@ -12,13 +12,13 @@ export default {
 </script>
 
 <style scoped>
-  .hangman-letter {
-    border-bottom: 2px solid #444;
-    font-size: 30px;
-    height: 40px;
-    width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.hangman-letter {
+  border-bottom: 2px solid #444;
+  font-size: 30px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>
