@@ -6,7 +6,12 @@
       </v-col>
       <v-col cols="12" class="d-flex justify-center">
         <div class="hangman-rules">
-          <h2 class="text-center">RULES</h2>
+          <h2 class="text-center">HOW TO PLAY</h2>
+          <p>When starting the game, you will be given a random word to guess.</p>
+          <p>Click on one of the letters you think you might have in the word.</p>
+          <p>If the letter exists in the word, it will appear in the exact position and will be green in the virtual keyboard.</p>
+          <p>If the letter does not exist, it will appear in the <b>INCORRECT LETTERS</b> area and will be red in the virtual keyboard.</p>
+          <p>If you miss 7 letters, YOU LOSE!</p>
         </div>
       </v-col>
       <v-col cols="12" class="d-flex justify-center">
@@ -26,11 +31,13 @@ export default {
 
 <style>
 .hangman-rules {
-  border: 1px solid #ddd;
   border-radius: 20px;
   padding: 20px;
   margin: 40px;
   width: 100%;
   max-width: 500px;
+}
+.hangman-rules p {
+  text-align: justify;
 }
 </style>

@@ -49,7 +49,7 @@
           <v-chip v-if="letter.status === 'E'" color="error" class="mx-2">{{ letter.letter }}</v-chip>
         </span>
       </v-col>
-      <v-col cols="12" class="d-flex justify-center">
+      <v-col cols="12" class="d-flex justify-center mt-5">
         <v-btn to="/" class="mr-2">
           <v-icon>mdi-reply</v-icon> BACK TO HOME
         </v-btn>
