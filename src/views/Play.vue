@@ -10,7 +10,8 @@
             <v-icon x-large color="success">
               mdi-emoticon
             </v-icon>
-            YOU WON
+            YOU WON<br/>
+            <small>THE CORRECT WORD IS <b>{{ correctWord }}</b></small>
           </div>
           <div v-if="status === 'D'" class="div-message">
             <v-icon x-large color="error">
@@ -71,6 +72,7 @@ export default {
   data: () => ({
     alphabet: JSON.parse(JSON.stringify(alphabet)),
     word: {},
+    correctWord: null,
     letters: [],
     status: 'P',
     countErrors: 0
@@ -90,12 +92,23 @@ export default {
           alert('Error to find a word!');
         });
     },
+    async guessWord() {
+      let text = this.letters.toString().replaceAll(',', '');
+      await api.get(`words/guess-word/${this.word.index}/${text}`)
+        .then(res => {
+          this.correctWord = res.data.text;
+          this.statusGame('V');
+        })
+        .catch(err => {
+          console.log(err);
+          alert('Error to guess a word!');
+        });
+    },
     async clickLetter(letter) {
       await api.get(`words/find-letter/${this.word.index}/${letter.letter}`)
         .then(res => {
           if (res.data.indexes.length > 0) {
             res.data.indexes.map(index => {
-              console.log(index);
               this.letters[index] = letter.letter;
             });
             letter.status = 'C';
@@ -118,7 +131,7 @@ export default {
         if (letter === '')
           win = false;
       });
-      return win ? this.statusGame('V') : null;
+      return win ? this.guessWord() : null;
     },
     checkDefeat() {
       let lostCount = 0;
