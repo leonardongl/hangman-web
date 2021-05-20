@@ -1,14 +1,25 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="4">
-        <v-img src="https://www.sightwordsgame.com/wp-content/uploads/2011/11/Hangman.jpg" />
+      <v-col sm="4" cols="12">
+        <img style="height: 300px; margin: 0 auto" :src="require(`@/assets/hangman${countErrors}.png`)" />
       </v-col>
-      <v-col cols="8" class="d-flex flex-column justify-space-between">
-        <div v-if="status !== 'P'" class="game-message">
-          {{ status === 'V' ? 'YOU WIN' : 'YOU LOSE' }}
+      <v-col sm="8" cols="12" class="d-flex flex-column justify-space-between">
+        <div class="game-message">
+          <div v-if="status === 'V'" class="div-message">
+            <v-icon x-large color="success">
+              mdi-emoticon
+            </v-icon>
+            YOU WON
+          </div>
+          <div v-if="status === 'D'" class="div-message">
+            <v-icon x-large color="error">
+              mdi-emoticon-dead
+            </v-icon>
+            YOU LOSE
+          </div>
         </div>
-        <div v-if="letters" class="d-flex justify-space-around">
+        <div v-if="letters" class="d-flex flex-wrap justify-space-around">
           <letter 
             v-for="(letter, index) in letters" 
             :key="index" 
@@ -62,6 +73,7 @@ export default {
     word: {},
     letters: [],
     status: 'P',
+    countErrors: 0
   }),
   created() {
     this.getWord();
@@ -90,6 +102,7 @@ export default {
             this.$forceUpdate();
             this.checkVictory();
           } else {
+            this.countErrors++;
             letter.status = 'E';
             this.checkDefeat();
           }
@@ -113,7 +126,7 @@ export default {
         if (letter.status === 'E')
           lostCount++;
       });
-      return lostCount > 5 ? this.statusGame('L') : null;
+      return lostCount > 6 ? this.statusGame('D') : null;
     },
     statusGame(status) {
       this.status = status;
@@ -123,6 +136,7 @@ export default {
       this.word = {};
       this.letters = [];
       this.status = 'P';
+      this.countErrors = 0;
       this.getWord();
       this.$forceUpdate();
     },
@@ -145,6 +159,12 @@ export default {
   height: 100%;
   font-size: 40px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div-message {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
