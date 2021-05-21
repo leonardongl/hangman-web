@@ -2,8 +2,8 @@
 
 > Frontend of an application for the Hangman game.<br>
 > Web application built using Javascript with Vue.js.<br>
-> The backend that this web application consumes can be found in the following repository https://github.com/leonardongl/hangman-api.git.<br>
-> If you want to know more about the Hangman game go to https://en.wikipedia.org/wiki/Hangman_(game).
+> The backend that this web application consumes can be found in the following repository [Backend](https://github.com/leonardongl/hangman-api).<br>
+> If you want to know more about the Hangman game go to [Wikipedia](https://en.wikipedia.org/wiki/Hangman_(game)).
 
 ## Prerequisites
 - npm >= 5.5.0
@@ -19,7 +19,7 @@ $ npm start
 ```
 
 ## How to play
-- You can build the application and play offline or simply access http://hangman.noronhaleao.com.br/.
+- You can build the application and play offline or simply access [Hangman](http://hangman.noronhaleao.com.br/).
 - When starting the game, you will be given a random word to guess.
 - Click on one of the letters you think you might have in the word.
 - If the letter exists in the word, it will appear in the exact position and will be green in the virtual keyboard.
