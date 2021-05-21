@@ -17,6 +17,8 @@ $ cp .env.example .env.local
 $ npm install
 $ npm start
 ```
+- You may need to set the environment variables in <b>.env.local</b> according to the API you will consume
+- You can set according to your backend build or using the online API https://damp-depths-34440.herokuapp.com/
 
 ## How to play
 - You can build the application and play offline or simply access [Hangman](http://hangman.noronhaleao.com.br/).
