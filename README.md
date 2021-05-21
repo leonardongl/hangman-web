@@ -1,8 +1,8 @@
 <h1 align="center">Hangman - The Game</h1>
 
-> Frontend of an application for the Hangman game.
-> Web application built using Javascript with Vue.js.
-> The backend that this web application consumes can be found in the following repository https://github.com/leonardongl/hangman-api.git.
+> Frontend of an application for the Hangman game.<br>
+> Web application built using Javascript with Vue.js.<br>
+> The backend that this web application consumes can be found in the following repository https://github.com/leonardongl/hangman-api.git.<br>
 > If you want to know more about the Hangman game go to https://en.wikipedia.org/wiki/Hangman_(game).
 
 ## Prerequisites
