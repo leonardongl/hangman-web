@@ -11,7 +11,7 @@
               mdi-emoticon
             </v-icon>
             YOU WON<br/>
-            <small>THE CORRECT WORD IS <b>{{ correctWord }}</b></small>
+            <small>THE WORD IS <b>{{ correctWord }}</b></small>
           </div>
           <div v-if="status === 'D'" class="div-message">
             <v-icon x-large color="error">
